@@ -61,7 +61,7 @@ namespace AVD9QK_HFT_2022231.Repository
                 new Operator("9#Dominic Brunsmeier#33#180#5#9"),
                 new Operator("10#Sebastien Cote#37#178#6#10")
 
-            });
+            }); 
 
             //Id,name,country
 
