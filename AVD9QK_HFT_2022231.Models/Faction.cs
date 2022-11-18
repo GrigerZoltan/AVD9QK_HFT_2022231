@@ -20,5 +20,14 @@ namespace AVD9QK_HFT_2022231.Models
         {
             this.Operators = new HashSet<Operator>();
         }
+
+        public Faction(string line)
+        {
+            string[] split = line.Split('#');
+            FactionId = int.Parse(split[0]);
+            FactionName = split[1];
+            Nation = split[2];
+            Operators = new HashSet<Operator>();
+        }
     }
 }

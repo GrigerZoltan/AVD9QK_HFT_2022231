@@ -28,5 +28,16 @@ namespace AVD9QK_HFT_2022231.Models
         {
 
         }
+
+        public Operator(string line)
+        {
+            string[] split = line.Split('#');
+            OperatorId = int.Parse(split[0]);
+            Name = split[1];
+            Age = int.Parse(split[2]);
+            Height = int.Parse(split[3]);
+            FactionId = int.Parse(split[4]);
+            WeaponId = int.Parse(split[5]);
+        }
     }
 }

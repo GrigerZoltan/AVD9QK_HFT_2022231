@@ -24,5 +24,15 @@ namespace AVD9QK_HFT_2022231.Models
         {
 
         }
+
+        public Weapon(string line)
+        {
+            string[] split = line.Split('#');
+            WeaponId = int.Parse(split[0]);
+            WeaponName = split[1];
+            Caliber = split[2];
+            Facturer = split[3];
+            OperatorId = int.Parse(split[4]);
+        }
     }
 }
