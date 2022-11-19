@@ -160,5 +160,72 @@ namespace AVD9QK_HFT_2022231.Test
                 }
             ));
         }
+
+        [Test]
+        public void CreateYoungOperatorTester()
+        {
+            var op = new Operator() { Age = 16 };
+            try
+            {
+                logic.Create(op);
+            }
+            catch
+            {
+
+            }
+
+            mockOpRepo.Verify(r => r.Create(op), Times.Never);
+        }
+
+        [Test]
+        public void CreateOldOperatorTester()
+        {
+            var op = new Operator() { Age = 77 };
+            try
+            {
+                logic.Create(op);
+            }
+            catch
+            {
+
+            }
+
+            mockOpRepo.Verify(r => r.Create(op), Times.Never);
+        }
+        [Test]
+        public void CreateOperatorTester()
+        {
+            var op = new Operator() { Name = "Cpt. Price", Age = 42, Height = 183 };
+
+            logic.Create(op);
+
+            mockOpRepo.Verify(r => r.Create(op), Times.Once);
+        }
+
+        [Test]
+        public void DeleteTester()
+        {
+            logic.Delete(1);
+
+            mockOpRepo.Verify(r => r.Delete(It.IsAny<int>()), Times.Once);
+
+        }
+
+        [Test]
+        public void ReadTester()
+        {
+            Operator expected = new Operator
+            {
+                Name = "Alex Mason",
+                Age = 37,
+                OperatorId = 11
+            };
+
+            mockOpRepo.Setup(r => r.Read(11)).Returns(expected);
+
+            var actual = logic.Read(11);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
