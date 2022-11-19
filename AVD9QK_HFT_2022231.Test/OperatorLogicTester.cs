@@ -112,5 +112,53 @@ namespace AVD9QK_HFT_2022231.Test
                 }
             ));
         }
+
+        [Test]
+        public void MaxAgePerFactionTester()
+        {
+            var result = logic.MaxAgePerFaction();
+            Assert.That(result, Is.EqualTo(new List<KeyValuePair<string, int>>()
+                {
+                   new KeyValuePair<string, int>("Border Protection Group 9",33),
+                   new KeyValuePair<string, int>("Federal Bureau of Investigation",41),
+                   new KeyValuePair<string, int>("Joint Task Force 2",37),
+                   new KeyValuePair<string, int>("National Gendarmerie Intervention Group",44),
+                   new KeyValuePair<string, int>("Special Air Services",54),
+                   new KeyValuePair<string, int>("Spetsnaz GRU",39),
+                }
+            ));
+        }
+
+        [Test]
+        public void MinHeightPerFactionTester()
+        {
+            var result = logic.MinHeightPerFaction();
+            Assert.That(result, Is.EqualTo(new List<KeyValuePair<string, int>>()
+                {
+                   new KeyValuePair<string, int>("Border Protection Group 9",180),
+                   new KeyValuePair<string, int>("Federal Bureau of Investigation",179),
+                   new KeyValuePair<string, int>("Joint Task Force 2",178),
+                   new KeyValuePair<string, int>("National Gendarmerie Intervention Group",168),
+                   new KeyValuePair<string, int>("Special Air Services",178),
+                   new KeyValuePair<string, int>("Spetsnaz GRU",180),
+                }
+            ));
+        }
+
+        [Test]
+        public void OperatorsPerFactionTester()
+        {
+            var result = logic.OperatorsPerFaction();
+            Assert.That(result, Is.EqualTo(new List<KeyValuePair<string, int>>()
+                {
+                   new KeyValuePair<string, int>("Border Protection Group 9",1),
+                   new KeyValuePair<string, int>("Federal Bureau of Investigation",2),
+                   new KeyValuePair<string, int>("Joint Task Force 2",1),
+                   new KeyValuePair<string, int>("National Gendarmerie Intervention Group",2),
+                   new KeyValuePair<string, int>("Special Air Services",3),
+                   new KeyValuePair<string, int>("Spetsnaz GRU",1),
+                }
+            ));
+        }
     }
 }
