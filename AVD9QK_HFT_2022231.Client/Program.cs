@@ -160,7 +160,7 @@ namespace AVD9QK_HFT_2022231.Client
         }
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:55349", "operator");
+            rest = new RestService("http://localhost:55349/", "operator");
 
             var operatorSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Operator"))
@@ -182,8 +182,6 @@ namespace AVD9QK_HFT_2022231.Client
                 .Add("Delete", () => Delete("Weapon"))
                 .Add("Update", () => Update("Weapon"))
                 .Add("Exit", ConsoleMenu.Close);
-
-
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Operators", () => operatorSubMenu.Show())
