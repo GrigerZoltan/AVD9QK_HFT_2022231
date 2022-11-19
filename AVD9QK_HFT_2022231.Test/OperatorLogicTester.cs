@@ -72,5 +72,45 @@ namespace AVD9QK_HFT_2022231.Test
 
             logic = new OperatorLogic(mockOpRepo.Object, mockFactionRepo.Object, mockWeaponRepo.Object);
         }
+
+        [Test]
+        public void OperatorsPreferredWeaponTester()
+        {
+            var result = logic.OperatorsPreferredWeapon();
+            Assert.That(result, Is.EqualTo(new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("Seamus Cowden","L85A2"),
+                    new KeyValuePair<string, string>("Mike Baker","HK33"),
+                    new KeyValuePair<string, string>("James Porter","ARES FMG"),
+                    new KeyValuePair<string, string>("Jordan Trace","M1014"),
+                    new KeyValuePair<string, string>("Miles Campbell","UMP45"),
+                    new KeyValuePair<string, string>("Shuhrat Kessikbayev","AK-12"),
+                    new KeyValuePair<string, string>("Emmanuelle Pichon","FAMAS F1"),
+                    new KeyValuePair<string, string>("Gustave Kateb","MP5"),
+                    new KeyValuePair<string, string>("Dominic Brunsmeier","MP7"),
+                    new KeyValuePair<string, string>("Sebastien Cote","C7"),
+                }
+            ));
+        }
+
+        [Test]
+        public void FactionNameWithOperatorTester()
+        {
+            var result = logic.FactionNamewithOperator();
+            Assert.That(result, Is.EqualTo(new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("Special Air Services","Seamus Cowden"),
+                    new KeyValuePair<string, string>("Special Air Services","Mike Baker"),
+                    new KeyValuePair<string, string>("Special Air Services","James Porter"),
+                    new KeyValuePair<string, string>("Spetsnaz GRU","Shuhrat Kessikbayev"),
+                    new KeyValuePair<string, string>("Federal Bureau of Investigation","Jordan Trace"),
+                    new KeyValuePair<string, string>("Federal Bureau of Investigation","Miles Campbell"),
+                    new KeyValuePair<string, string>("National Gendarmerie Intervention Group","Emmanuelle Pichon"),
+                    new KeyValuePair<string, string>("National Gendarmerie Intervention Group","Gustave Kateb"),
+                    new KeyValuePair<string, string>("Border Protection Group 9","Dominic Brunsmeier"),
+                    new KeyValuePair<string, string>("Joint Task Force 2","Sebastien Cote"),
+                }
+            ));
+        }
     }
 }
