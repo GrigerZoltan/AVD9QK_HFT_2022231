@@ -158,6 +158,87 @@ namespace AVD9QK_HFT_2022231.Client
                 rest.Delete(id, "weapon");
             }
         }
+
+        static void FactionNameWithOperator(RestService rest)
+        {
+            var result = rest.Get<KeyValuePair<string, string>>("stat/factionnamewithoperators");
+            Console.WriteLine("\nFaction names and operators:\n");
+            if (result != null)
+            {
+                foreach (var item in result)
+                {
+                    Console.WriteLine("Faction: {0}, Operator: {1}", item.Key, item.Value);
+                }
+            }
+            else { Console.WriteLine("There is no data"); }
+
+            Console.ReadLine();
+        }
+
+        static void MaxAgePerFaction(RestService rest)
+        {
+            var result = rest.Get<KeyValuePair<string, int>>("stat/maxageperfaction");
+            Console.WriteLine("\nMaximum age in every faction\n");
+            if (result != null)
+            {
+                foreach (var item in result)
+                {
+                    Console.WriteLine("Faction: {0}, Age: {1}", item.Key, item.Value);
+                }
+            }
+            else { Console.WriteLine("There is no data"); }
+
+            Console.ReadLine();
+        }
+
+        static void MinHeightPerFaction(RestService rest)
+        {
+            var result = rest.Get<KeyValuePair<string, int>>("stat/minheightperfaction");
+            Console.WriteLine("\nMinimum height in every faction\n");
+            if (result != null)
+            {
+                foreach (var item in result)
+                {
+                    Console.WriteLine("Faction: {0}, Height: {1}", item.Key, item.Value);
+                }
+            }
+            else { Console.WriteLine("There is no data"); }
+
+            Console.ReadLine();
+        }
+
+        static void OperatorsPerFaction(RestService rest)
+        {
+            var result = rest.Get<KeyValuePair<string, int>>("stat/operatorsperfaction");
+            Console.WriteLine("\nNumber of operators in every faction\n");
+            if (result != null)
+            {
+                foreach (var item in result)
+                {
+                    Console.WriteLine("Faction: {0}, Number of operators: {1}", item.Key, item.Value);
+                }
+            }
+            else { Console.WriteLine("There is no data"); }
+
+            Console.ReadLine();
+        }
+
+        static void OperatorsPreferredWeapon(RestService rest)
+        {
+            var result = rest.Get<KeyValuePair<string, string>>("stat/operatorspreferredweapon");
+            Console.WriteLine("\nOperators and their preferred weapon\n");
+            if (result != null)
+            {
+                foreach (var item in result)
+                {
+                    Console.WriteLine("Operator: {0}, Weapon: {1}", item.Key, item.Value);
+                }
+            }
+            else { Console.WriteLine("There is no data"); }
+
+            Console.ReadLine();
+        }
+
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:55349/", "operator");
@@ -183,10 +264,19 @@ namespace AVD9QK_HFT_2022231.Client
                 .Add("Update", () => Update("Weapon"))
                 .Add("Exit", ConsoleMenu.Close);
 
+            var nonCRUDSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("Faction name with operator", () => FactionNameWithOperator(rest))
+                .Add("Maximum age per faction", () => MaxAgePerFaction(rest))
+                .Add("Minimum height per faction", () => MinHeightPerFaction(rest))
+                .Add("Operators per faction", () => OperatorsPerFaction(rest))
+                .Add("Operators preferred weapon", () => OperatorsPreferredWeapon(rest))
+                .Add("Exit", ConsoleMenu.Close); 
+
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Operators", () => operatorSubMenu.Show())
                 .Add("Factions", () => factionSubMenu.Show())
                 .Add("Weapons", () => weaponSubMenu.Show())
+                .Add("non-CRUD", () => nonCRUDSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
             menu.Show();
