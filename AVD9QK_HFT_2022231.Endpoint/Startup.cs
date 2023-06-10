@@ -1,3 +1,4 @@
+using AVD9QK_HFT_2022231.Endpoint.Services;
 using AVD9QK_HFT_2022231.Logic;
 using AVD9QK_HFT_2022231.Models;
 using AVD9QK_HFT_2022231.Repository;
@@ -33,6 +34,8 @@ namespace AVD9QK_HFT_2022231.Endpoint
             services.AddSingleton<IFactionLogic, FactionLogic>();
             services.AddSingleton<IWeaponLogic, WeaponLogic>();
 
+            services.AddSignalR();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -59,6 +62,8 @@ namespace AVD9QK_HFT_2022231.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
+            app.UseCors(x => x.AllowCredentials().AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:21788"));
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -66,6 +71,7 @@ namespace AVD9QK_HFT_2022231.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

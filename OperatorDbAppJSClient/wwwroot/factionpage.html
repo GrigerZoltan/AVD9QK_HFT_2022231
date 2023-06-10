@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Faction UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+    <h1>Faction Catalog</h1> <a href="index.html">Operator Catalog</a> <a href="weaponpage.html">Weapon Catalog</a> <a href="noncrudmenu.html">NON-CRUD MENU</a>
+
+
+    <div id="formdiv">
+        <label>Faction Name</label>
+        <input type="text" id="factionname" />
+        <label>Nation</label>
+        <input type="text" id="factionnation" />
+
+        <button type="button" onclick="create()">Add Faction</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Faction Name</label>
+        <input type="text" id="factionnametoupdate" />
+        <label>Nation</label>
+        <input type="text" id="factionnationtoupdate" />
+       
+
+        <button type="button" onclick="update()">Update Faction</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Faction Name</th>
+                <th>Nation</th>
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+
+    <script src="factionscript.js"></script>
+</body>
+</html>

@@ -26,7 +26,7 @@ namespace AVD9QK_HFT_2022231.Repository
             {
                 if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
                 {
-                    prop.SetValue(old, prop.GetValue(item));
+                    prop.SetValue(old,prop.GetValue(item));
                 }
             }
 

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Operator UI</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+
+    <h1>Operator Catalog</h1> <a href="factionpage.html">Faction Catalog</a>  <a href="weaponpage.html">Weapon Catalog</a> <a href="noncrudmenu.html">NON-CRUD MENU</a>
+
+
+    <div id="formdiv">
+        <label>Operator Name</label>
+        <input type="text" id="operatorname" />
+        <label>Operator Age</label>
+        <input type="text" id="operatorage" />
+        <label>Operator Height</label>
+        <input type="text" id="operatorheight" />
+        <label>Faction ID</label>
+        <input type="text" id="factionid" />
+        <label>Weapon ID</label>
+        <input type="text" id="weaponid" />
+        <button type="button" onclick="create()">Add Operator</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Operator Name</label>
+        <input type="text" id="operatornametoupdate" />
+        <label>Operator Age</label>
+        <input type="text" id="operatoragetoupdate" />
+        <label>Operator Height</label>
+        <input type="text" id="operatorheighttoupdate" />
+        <label>Faction ID</label>
+        <input type="text" id="factionidtoupdate" />
+        <label>Weapon ID</label>
+        <input type="text" id="weaponidtoupdate" />
+
+        <button type="button" onclick="update()">Update Operator</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Height</th>
+                <th>Faction ID</th>
+                <th>Weapon ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

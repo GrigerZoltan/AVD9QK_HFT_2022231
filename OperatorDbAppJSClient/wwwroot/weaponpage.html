@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Weapon UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+    <h1>Weapon Catalog</h1> <a href="index.html">Operator Catalog</a> <a href="factionpage.html">Faction Catalog</a> <a href="noncrudmenu.html">NON-CRUD MENU</a>
+
+
+    <div id="formdiv">
+        <label>Weapon Name</label>
+        <input type="text" id="weaponname" />
+        <label>Caliber</label>
+        <input type="text" id="caliber" />
+        <label>Facturer</label>
+        <input type="text" id="facturer" />
+        <label>Operator Id</label>
+        <input type="text" id="operatorid" />
+
+        <button type="button" onclick="create()">Add Weapon</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Weapon Name</label>
+        <input type="text" id="weaponnametoupdate" />
+        <label>Caliber</label>
+        <input type="text" id="calibertoupdate" />
+        <label>facturer</label>
+        <input type="text" id="facturertoupdate" />
+        <label>Operator Id</label>
+        <input type="text" id="operatoridtoupdate" />
+
+        <button type="button" onclick="update()">Update Weapon</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Weapon Name</th>
+                <th>Caliber</th>
+                <th>Facturer</th>
+                <th>Operator ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+
+    <script src="weaponscript.js"></script>
+</body>
+</html>

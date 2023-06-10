@@ -9,6 +9,8 @@ namespace AVD9QK_HFT_2022231.Endpoint.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
+
+    
     public class StatController : ControllerBase
     {
         IOperatorLogic logic;
